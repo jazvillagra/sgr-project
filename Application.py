@@ -8,5 +8,4 @@ root = connection.root
 
 class Application(persistent.Persistent):
   print("Bienvenido al SGR")
-  print("Por favor, elija la sucursal a la cual desea acceder: ")
   
