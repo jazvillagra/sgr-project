@@ -4,7 +4,11 @@ class Coworking(persistent.Persistent):
   pass
 
 class Empresa(Coworking):
-  pass
+  #Inicializa datos de empresa
+  def __init__(self, nombre, rubro, cant_sucursales):
+    self.nombre= nombre
+    self.rubro= rubro
+    self.cant_sucursales= cant_sucursales
 
 class Sucursal(Empresa):
     
