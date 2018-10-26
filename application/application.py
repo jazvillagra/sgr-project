@@ -1,4 +1,4 @@
-import sched, time, persistent, coworking
+import sched, time, persistent
 from ZODB import FileStorage, DB
 
 storage = FileStorage.FileStorage("coworking-data.fs")
