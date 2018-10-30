@@ -7,10 +7,9 @@ class Model(ABCMeta, persistent.Persistent):
   db = DB(storage)
   connection = db.open()
   root = connection.root
-  tabla = []
   @classmethod
   def getAll(self):
-    recursos = self.root[self.tabla]
+    recursos = self.root
     return recursos
     
   @classmethod
