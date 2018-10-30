@@ -28,7 +28,7 @@ class Reunion:
     pass
   #Convertir string a json
   def a_json(self):
-    return "{\"detalle\":\""+self.detalle+"\", \"organizador\":\""+self.organizador+"\"organizador_rol\":\""+self.organizador_rol+"\"cant_participantes\":\""+self.cant_participantes+"\"estado\":\""+self.estado+"\"fecha_realizacion\":\""+self.fecha_realizacion+"}"
+    return "{\"detalle\":\""+self.detalle+"\", \"organizador\":\""+self.organizador+", \"organizador_rol\":\""+self.organizador_rol+", \"cant_participantes\":\""+self.cant_participantes+", \"estado\":\""+self.estado+", \"fecha_realizacion\":\""+self.fecha_realizacion+"}"
 
 #Reunion informal: aquella que comienza en el momento en que se elige la opcion en el menu.
 #Dura entre 10 y 30 minutos

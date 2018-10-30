@@ -1,4 +1,4 @@
-import json, transaction, persistent
+import json, transaction
 from coworking import Coworking
 
 class Empresa(Coworking):
@@ -38,6 +38,7 @@ class Sucursal():
   #Generar reportes de reuniones realizadas en sucursal
   def generar_reporte_reuniones_sucursal(self):
     pass
+  #Listar sucursales
   def listar_sucursales(self, connection):
     pass
   def a_json(self):
