@@ -1,4 +1,5 @@
 import persistent, transaction, json
+from abc import ABC, abstractmethod
 class Reunion:
   def __init__(self, detalle, organizador, organizador_rol, cant_participantes, estado, fecha_realizacion):
     self.detalle= detalle
@@ -41,7 +42,8 @@ class ReunionInformal(Reunion):
       pass
 
 #Reunion formal: toda reunion previamente agendada
-class ReunionFormal(Reunion):
+#Clase abstracta
+class ReunionFormal(ABC, Reunion):
   def __init__(self, fecha_registro, hora_inicio, finish_hour):
     self.fecha_registro= fecha_registro
     self.hora_inicio= hora_inicio
@@ -50,7 +52,7 @@ class ReunionFormal(Reunion):
 #Reunion formal unica: toda reunion previamente agendada que no se repite en el tiempo.
 #Dura mas de 30 minutos y solo tiene fecha de inicio
 class ReunionFormalUnica(ReunionFormal):
-  def __init__(self, frecuencia):
+  def __init__(self):
       self.frecuencia= 1
       pass
 
