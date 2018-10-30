@@ -8,11 +8,15 @@ class Empresa(Coworking):
     self.rubro= rubro
 
 class Organizacion():
+  #Inicializa datos de la organizacion
   def __init__(self, cant_sucursales):
-    self.cant_sucursales= cant_sucursales      
+    self.cant_sucursales= cant_sucursales
+  #Agregar organizacion
+  def agregar_organizacion(self, connection):
+    pass
 
 class Sucursal():
-      #Inicializa datos de la sucursal
+  #Inicializa datos de la sucursal
   def __init__(self, pais, ciudad, direccion, salas, estado):
     self.pais= pais
     self.ciudad= ciudad
@@ -50,7 +54,18 @@ class Sala:
     self.max_ocupantes= max_ocupantes
     self.estado_sala= estado_sala
   #Agregar sala nueva
-  def agregar_sala(self):
+  def agregar_sala(self, connection):
+    root = connection.root
+    if 'salas' in connection.root():
+      salas = json.loads(root.salas)
+      sala = json.loads(self.a_json)
+      salas.append(sala)
+      root.salas = json.dumps(sala)
+    else:
+      sala = json.loads(self.a_json)
+      salas = [sala]
+      root.salas = json.dumps(salas)
+    transaction.commit()
     pass
   #Dar baja a sala  
   def dar_baja_sala(self, estado):
@@ -58,3 +73,8 @@ class Sala:
   #Generar reportes de reuniones realizadas en una sala de una sucursal
   def generar_reporte_reuniones_sala(self):
     pass
+  #Listar salas de una sucursal
+  def listar_salas(self):
+    pass
+  def a_json(self):
+    return "{\"nombre_sala\": \""+self.nombre_sala+"\", \"max_ocupantes\": \""+self.max_ocupantes+"\", \"estado_sala\": \""+self.estado_sala+"}"
