@@ -6,6 +6,6 @@ db = DB(storage)
 connection = db.open()
 root = connection.root
 
-class Application(persistent.Persistent):
+class Aplicacion(persistent.Persistent):
   print("Bienvenido al SGR")
   
