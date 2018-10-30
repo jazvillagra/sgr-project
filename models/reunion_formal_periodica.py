@@ -1,5 +1,5 @@
 
-from reunionFormal import ReunionFormal
+from reunion_formal import ReunionFormal
 #Reunion formal periodica: reunion previamente agendada y que se repite en el tiempo
 #Tiene una frecuencia definida, junto con fecha de inicio y de fin
 class FormalPeriodicMeeting(ReunionFormal):
