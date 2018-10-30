@@ -31,11 +31,17 @@ class Sucursal():
       sucursal = json.loads(self.a_json)
       sucursales.append(sucursal)
       root.sucursales = json.dumps(sucursales)
+      #Para mantener el indice al crear nuevas sucursales, se retorna el largo de la lista/array
+      idx_sucursales = len(sucursales)
     else:
       sucursal = json.loads(self.a_json)
       sucursales = [sucursal]
       root.sucursales = json.dumps(sucursales)
+      #Si todavia no existen sucursales, se mantiene el indice en cero
+      idx_sucursales = 0
     transaction.commit()
+    return idx_sucursales
+
   #Dar baja a sucursal  
   def dar_baja_sucursal(self, estado):
     pass
@@ -61,12 +67,17 @@ class Sala:
       sala = json.loads(self.a_json)
       salas.append(sala)
       root.salas = json.dumps(sala)
+      #Para mantener el indice al agregar nuevas salas, se devuelve el tamaño de la lista/array
+      idx_salas= len(salas)
     else:
       sala = json.loads(self.a_json)
       salas = [sala]
       root.salas = json.dumps(salas)
+      #Si todavia no existen salas, el indice se mantiene en cero
+      idx_salas = 0
     transaction.commit()
-    pass
+    return idx_salas
+    
   #Dar baja a sala  
   def dar_baja_sala(self, estado):
     pass

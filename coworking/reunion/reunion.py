@@ -16,11 +16,16 @@ class Reunion:
       reunion = json.loads(self.a_json)
       reuniones.append(reunion)
       root.reuniones = json.dumps(reuniones)
+      #Para mantener el indice de las reuniones guardadas, se retorna el tamaño del array
+      idx_reuniones = len(reuniones)
     else:
       reunion = json.loads(self.a_json)
       reuniones = [reunion]
       root.reuniones = json.dumps(reuniones)
+      #Si todavia no se guardaron reuniones, el indice queda en cero
+      idx_reuniones = len(reuniones)
     transaction.commit()
+    return idx_reuniones
   #Cancelar reunion
   def cancelar_reunion(self):
     pass
