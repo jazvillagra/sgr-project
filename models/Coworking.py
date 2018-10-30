@@ -1,5 +1,4 @@
-import persistent, transaction
-from aplicacion import aplicacion
+import persistent
 
 class Coworking(persistent.Persistent):
   def __init__(self, app):
