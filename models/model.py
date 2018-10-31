@@ -1,5 +1,6 @@
 from abc import ABC, ABCMeta, abstractmethod, abstractproperty
-from ZODB import FileStorage, DB
+#from ZODB import FileStorage, DB
+from mizodb import MiZODB, transaction
 import json, persistent
 
 class Model(ABC, persistent.Persistent):
@@ -27,15 +28,22 @@ class Model(ABC, persistent.Persistent):
   #Retorna todas las instancias del modulo almacenadas en la base de datos
   @abstractmethod
   def getAll(self):
-    recursos = self.root[self.clave]
+    db = MiZODB('../sgr-data.fs')
+    dbroot = db.root
+    recursos = dbroot[self.clave]
+    db.close()
     return recursos
+
   #Crea una nueva instancia del modulo en la base de datos  
   @abstractmethod
   def create(self):
-    recursos = self.root[self.clave]
+    db = MiZODB('../sgr-data.fs')
+    dbroot = db.root
+    recursos = dbroot[self.clave]
     idx = len(recursos)
     recursos.append(self)
     return idx
+
   #Elimina una instancia del modulo en la base de datos
   @abstractmethod
   def delete(self):
