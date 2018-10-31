@@ -1,12 +1,4 @@
 class Sucursal:
-  salas = []
-  #Inicializa datos de la sucursal
-  def __init__(self, pais, ciudad, direccion, estado, salas):
-    self.pais= pais
-    self.ciudad= ciudad
-    self.direccion= direccion
-    self.estado= estado
-    self.salas.append(salas)
   #Agregar Sucursal nueva
   def agregar_sucursal(self):
     pass
