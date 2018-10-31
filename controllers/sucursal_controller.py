@@ -1,6 +1,4 @@
-import json, transaction
-from model import Model
-class Sucursal(Model):
+class Sucursal:
   salas = []
   #Inicializa datos de la sucursal
   def __init__(self, pais, ciudad, direccion, estado, salas):

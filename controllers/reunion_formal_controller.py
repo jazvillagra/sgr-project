@@ -1,7 +1,6 @@
-from reunion import Reunion
+from reunion_controller import ReunionController
 #Reunion formal: toda reunion previamente agendada
-#Clase abstracta
-class ReunionFormal(Reunion):
+class ReunionFormalController(ReunionController):
   def __init__(self, fecha_registro, hora_inicio, hora_finalizacion, **kwargs):
     super().__init__(**kwargs)
     self.fecha_registro= fecha_registro

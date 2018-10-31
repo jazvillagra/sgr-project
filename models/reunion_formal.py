@@ -1,6 +1,5 @@
 from reunion import Reunion
 #Reunion formal: toda reunion previamente agendada
-#Clase abstracta
 class ReunionFormal(Reunion):
   def __init__(self, fecha_registro, hora_inicio, hora_finalizacion, **kwargs):
     super().__init__(**kwargs)

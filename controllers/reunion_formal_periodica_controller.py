@@ -1,14 +1,13 @@
-
-from reunion_formal import ReunionFormal
+from reunion_formal_controller import ReunionFormalController
 #Reunion formal periodica: reunion previamente agendada y que se repite en el tiempo
 #Tiene una frecuencia definida, junto con fecha de inicio y de fin
-class FormalPeriodicMeeting(ReunionFormal):
-  def __init__(self, begin_date, finish_date, frecuencia, **kwargs):
-      self.begin_date= begin_date
-      self.finish_date= finish_date
+class ReunionFormalPeriodicaController(ReunionFormalController):
+  def __init__(self, fecha_inicio, fecha_finalizacion, frecuencia, **kwargs):
+      self.fecha_inicio= fecha_inicio
+      self.fecha_finalizacion= fecha_finalizacion
       self.frecuencia= frecuencia
-  def edit_frequence(self, frecuencia):
+  def cambiar_frecuencia(self, frecuencia):
       pass
-  def change_finish_date(self, finish_date):
+  def cambiar_fecha_finalizacion(self, fecha_finalizacion):
       pass
   

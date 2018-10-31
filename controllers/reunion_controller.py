@@ -1,7 +1,4 @@
-import persistent, transaction
-from persistent.mapping import PersistentMapping
-from model import Model
-class Reunion(Model, persistent.Persistent):
+class ReunionController:
 
   def __init__(self, detalle, organizador, organizador_rol, cant_participantes, estado, fecha_realizacion):
     self.detalle = detalle

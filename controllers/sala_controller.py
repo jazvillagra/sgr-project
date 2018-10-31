@@ -7,7 +7,7 @@ class SalaController:
   def agregar_sala(self, connection):
     pass
   #Dar baja a sala  
-  def dar_baja_sala(self, estado):
+  def dar_baja_sala(self):
     pass
   #Generar reportes de reuniones realizadas en una sala de una sucursal
   def generar_reporte_reuniones_sala(self):
