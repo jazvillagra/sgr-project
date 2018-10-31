@@ -1,5 +1,6 @@
 import persistent, transaction, json
-class Reunion:
+from model import Model
+class Reunion(Model):
   def __init__(self, detalle, organizador, organizador_rol, cant_participantes, estado, fecha_realizacion):
     self.detalle= detalle
     self.organizador= organizador
@@ -9,18 +10,17 @@ class Reunion:
     self.fecha_realizacion= fecha_realizacion
   #Agendar reunion
   def agendar_reunion(self, connection):
-    root = connection.root
     if 'reuniones' in connection.root():
-      reuniones = json.loads(root.reuniones)
+      reuniones = json.loads(self.root.reuniones)
       reunion = json.loads(self.a_json)
       reuniones.append(reunion)
-      root.reuniones = json.dumps(reuniones)
+      self.root.reuniones = json.dumps(reuniones)
       #Para mantener el indice de las reuniones guardadas, se retorna el tamaño del array
       idx_reuniones = len(reuniones)
     else:
       reunion = json.loads(self.a_json)
       reuniones = [reunion]
-      root.reuniones = json.dumps(reuniones)
+      self.root.reuniones = json.dumps(reuniones)
       #Si todavia no se guardaron reuniones, el indice queda en cero
       idx_reuniones = len(reuniones)
     transaction.commit()
