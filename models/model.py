@@ -1,26 +1,42 @@
-from abc import ABCMeta, abstractmethod
+from abc import ABC, ABCMeta, abstractmethod, abstractproperty
 from ZODB import FileStorage, DB
 import json, persistent
 
-class Model(ABCMeta, persistent.Persistent):
-  storage = FileStorage.FileStorage("coworking-data.fs")
-  db = DB(storage)
-  connection = db.open()
-  root = connection.root
-  @classmethod
+class Model(ABC, persistent.Persistent):
+
+  #Propiedad abstracta 
+  @property
+  @abstractmethod
+  def clave(self):
+    pass
+
+  @clave.setter
+  @abstractmethod
+  def clave(self, value):
+    self._clave_setter_(value)
+  
+  @abstractmethod
+  def _clave_setter_(self, value):
+    pass
+  
+  @clave.getter
+  @abstractmethod
+  def clave(self):
+    return 
+  
+  #Retorna todas las instancias del modulo almacenadas en la base de datos
+  @abstractmethod
   def getAll(self):
-    recursos = self.root
+    recursos = self.root[self.clave]
     return recursos
-    
-  @classmethod
+  #Crea una nueva instancia del modulo en la base de datos  
+  @abstractmethod
   def create(self):
-    pass
-  @classmethod
-  def update(self):
-    pass
-  @classmethod
+    recursos = self.root[self.clave]
+    idx = len(recursos)
+    recursos.append(self)
+    return idx
+  #Elimina una instancia del modulo en la base de datos
+  @abstractmethod
   def delete(self):
-    pass
-  @classmethod
-  def get_one(self):
     pass
