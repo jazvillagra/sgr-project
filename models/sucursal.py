@@ -1,4 +1,4 @@
-import json, transaction
+import transaction
 from model import Model
 class Sucursal(Model):
   salas = []

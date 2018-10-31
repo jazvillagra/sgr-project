@@ -1,9 +1,11 @@
-from empresa import Empresa
-class Organizacion(Empresa):
+import model
+from model import Model
+from abc import ABC
+class Organizacion(Model):
   sucursales = []
-  def __init__(self, nombre, sucursales, **kwargs):
-    super().__init__(**kwargs)
+  def __init__(self, nombre, rubro, sucursales):
     self.nombre = nombre
+    self.rubro = rubro
     self.sucursales.append(sucursales)
 
   def create(self):
