@@ -2,6 +2,8 @@ import json, transaction
 from model import Model
 class Sucursal(Model):
   salas = []
+  clave="sucursal"
+
   #Inicializa datos de la sucursal
   def __init__(self, pais, ciudad, direccion, estado, salas):
     self.pais= pais
@@ -9,10 +11,3 @@ class Sucursal(Model):
     self.direccion= direccion
     self.estado= estado
     self.salas.append(salas)
-   
-  def create(self):
-    print("Este metodo se encargara de cargar los datos de la sucursal en la base de datos")
-  def update(self):
-    print("Este metodo se encargara de actualizar los datos de la sucursal en la base de datos")
-  def getAll(self):
-    print("Este metodo devolvera todas las entradas de sucursales en la base de datos")
