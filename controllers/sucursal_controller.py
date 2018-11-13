@@ -1,4 +1,5 @@
-class Sucursal:
+from models.sucursal import Sucursal
+class SucursalController:
   #Agregar Sucursal nueva
   def agregar_sucursal(self):
     pass

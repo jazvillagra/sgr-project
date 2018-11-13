@@ -3,12 +3,14 @@ import persistent
 
 class Model(persistent.Persistent):
   clave = ""
+  #getAll
   def getAll(self):
     db = MiZODB('../sgr-data.fs')
     dbroot = db.root
     recursos = dbroot[self.clave]
     db.close()
     return recursos
+  #createObject in DB
   def create(self):
     print(self.clave)
     db = MiZODB('../sgr-data.fs')
@@ -21,5 +23,6 @@ class Model(persistent.Persistent):
       idx = len(recursos)
       recursos[self.clave] = self
     return idx
+
   def delete(self):
     pass

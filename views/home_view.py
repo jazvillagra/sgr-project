@@ -34,7 +34,7 @@ while True:
     SalaController.agregar_sala(nombre_sala, max_ocupantes, estado_sala)
     input("Se ha agregado una sala.\nPulsa una tecla para continuar")
   elif opcion_menu=="2":
-#    SalaController.listar_salas()
+    SalaController.listar_salas()
     input("Esta funcion se implementara muy pronto\nPulsa una tecla para continuar")
   elif opcion_menu=="3":
     input("Esta funcion se implementara muy pronto\nPulsa una tecla para continuar")

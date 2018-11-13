@@ -1,4 +1,5 @@
-class Organizacion():
+from models.model import Model
+class Organizacion(Model):
   sucursales = []
   clave="organizacion"
   def __init__(self, nombre, rubro, sucursales):

@@ -1,3 +1,7 @@
+from models.reunion import Reunion
+from models.reunion_formal import ReunionFormal
+from models.reunion_formal_periodica import ReunionFormalPeriodica
+from models.reunion_informal import ReunionInformal
 class ReunionController:
 
   #Agendar reunion

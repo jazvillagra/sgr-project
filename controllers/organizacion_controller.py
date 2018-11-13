@@ -1,7 +1,10 @@
+from models.organizacion import Organizacion
 class OrganizacionController:
   #Agregar organizacion a empresa
-  def agregar_organizacion(self):
-    pass
+  @staticmethod
+  def agregar_organizacion(nombre_organizacion, rubro, sucursales):
+    organizacion = Organizacion(nombre_organizacion, rubro, sucursales)
+    return Organizacion.create(organizacion)
   #Editar datos de organizacion
   def editar_organizacion(self):
     pass

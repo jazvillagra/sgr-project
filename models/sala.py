@@ -1,5 +1,3 @@
-import json, transaction
-from mizodb import MiZODB, transaction
 from models.model import Model
 class Sala(Model):
   clave="sala"
