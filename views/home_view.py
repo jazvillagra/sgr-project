@@ -1,5 +1,6 @@
 #! /usr/bin/python3
 import os
+
 from controllers.sala_controller import SalaController
 from mizodb import MiZODB, transaction
 
@@ -12,6 +13,7 @@ for i in modulos:
     if not str(i) in dbroot:
       dbroot[i] = []
       transaction.commit()
+      db.close()
   except KeyError:
     print("La clave es invalida")
 
@@ -25,17 +27,18 @@ def home_menu():
   print ("\t0 - Salir")
 while True:
   home_menu()
+  sala_controller = SalaController()
   opcion_menu = input("Inserte un numero valor: ")
   if opcion_menu=="1":
     #Se eligio crear una sala
     nombre_sala= input("Nombre de sala: ")
     max_ocupantes= int(input("Maximo de ocupantes: "))
     estado_sala= input("Estado de sala(habilitada o inhabilitada): ")
-    SalaController.agregar_sala(nombre_sala, max_ocupantes, estado_sala)
+    sala_controller.agregar_sala(nombre_sala, max_ocupantes, estado_sala)
     input("Se ha agregado una sala.\nPulsa una tecla para continuar")
   elif opcion_menu=="2":
-    SalaController.listar_salas()
-    input("Esta funcion se implementara muy pronto\nPulsa una tecla para continuar")
+    sala_controller.listar_salas()
+    input("\nPulsa una tecla para continuar")
   elif opcion_menu=="3":
     input("Esta funcion se implementara muy pronto\nPulsa una tecla para continuar")
   elif opcion_menu=="0":
