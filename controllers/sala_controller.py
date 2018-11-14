@@ -13,6 +13,5 @@ class SalaController:
   def generar_reporte_reuniones_sala(self):
     pass
   #Listar salas de una sucursal
-  @staticmethod
-  def listar_salas():
-    return Sala.getAll(Sala.self)
+  def listar_salas(self):
+    return Sala.getAll(Sala)
