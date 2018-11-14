@@ -22,6 +22,7 @@ class Model(persistent.Persistent):
       recursos = dbroot[self.clave]
       idx = len(recursos)
       recursos[self.clave] = self
+    db.close()
     return idx
 
   def delete(self):
