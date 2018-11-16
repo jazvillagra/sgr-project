@@ -1,8 +1,9 @@
 from models.sucursal import Sucursal
 class SucursalController:
   #Agregar Sucursal nueva
-  def agregar_sucursal(self):
-    pass
+  def agregar_sucursal(self, pais, ciudad, direccion, estado, salas):
+    sucursal = Sucursal(pais, ciudad, direccion, estado, salas)
+    return sucursal
   #Dar baja a sucursal  
   def dar_baja_sucursal(self):
     pass
@@ -11,4 +12,4 @@ class SucursalController:
     pass
   #Listar sucursales
   def listar_sucursales(self):
-    pass
+    return Sucursal.getAll(Sucursal)
