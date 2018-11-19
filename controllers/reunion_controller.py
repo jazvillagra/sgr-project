@@ -5,7 +5,7 @@ from models.reunion_informal import ReunionInformal
 class ReunionController:
 
   #Agendar reunion
-  def agendar_reunion(self, detalle, organizador, organizador_rol, cant_participantes, estado, fecha_realizacion):
+  def agendar_reunion(self, detalle, organizador, organizador_rol, cant_participantes, sala, estado, fecha_realizacion):
     pass
   #Cancelar reunion
   def cancelar_reunion(self):
