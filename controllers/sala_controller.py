@@ -5,7 +5,6 @@ class SalaController:
   def agregar_sala(nombre_sala, max_ocupantes, estado_sala):
     sala = Sala(nombre_sala, max_ocupantes, estado_sala)
     return Sala.create(sala)
-
   #Dar baja a sala  
   def dar_baja_sala(self):
     pass
