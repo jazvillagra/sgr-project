@@ -1,6 +1,7 @@
 import persistent, transaction
 from abc import ABC, abstractmethod
-from model import Model
+from models.model import Model
+
 class Reunion(ABC, Model):
 
   def __init__(self, detalle, organizador, organizador_rol, cant_participantes, sala, estado, fecha_realizacion):

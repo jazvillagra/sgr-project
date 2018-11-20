@@ -1,4 +1,4 @@
-from reunion import Reunion
+from models.reunion import Reunion
 #Reunion formal: toda reunion previamente agendada
 class ReunionFormal(Reunion):
   def __init__(self, fecha_registro, hora_inicio, hora_finalizacion, **kwargs):

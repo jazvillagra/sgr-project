@@ -1,27 +1,36 @@
-from mizodb import MiZODB, transaction
+from mizodb import MiZODB
+import transaction
 import persistent
 
 class Model(persistent.Persistent):
-  clave = ""
   #getAll
+  @staticmethod
   def getAll(self):
-    db = MiZODB('../sgr-data.fs')
+    db = MiZODB('sgr-data.fs')
     dbroot = db.root
-    recursos = dbroot[self.clave]
+    recursos = []
+    for i in dbroot[self.getClave(self)]:
+      recursos.append(i.copy())
     db.close()
     return recursos
   #createObject in DB
   def create(self):
-    print(self.clave)
-    db = MiZODB('../sgr-data.fs')
+    #print("Clave: ", self.getClave(self))
+    db = MiZODB('sgr-data.fs')
     dbroot = db.root
-    if not self.clave in dbroot.keys():
-      dbroot[self.clave] = []
+    if not self.getClave() in dbroot.keys():
+      print("Creo el slot")
+      recursos = []
+      recursos.append(self)
+      db.root[self.getClave()] = recursos
       transaction.commit()
     else:
-      recursos = dbroot[self.clave]
+      print("Intenta guardar los datos")
+      recursos = dbroot[self.getClave()]
       idx = len(recursos)
-      recursos[self.clave] = self
+      recursos.append(self)
+      db.root[self.getClave()] = recursos
+      transaction.commit()
     db.close()
     return idx
 

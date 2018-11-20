@@ -3,23 +3,22 @@ import os, sys
 from controllers.sala_controller import SalaController
 from controllers.reunion_controller import ReunionController
 from mizodb import MiZODB, transaction
-
+ 
 db = MiZODB('sgr-data.fs')
 dbroot = db.root
 modulos= ["organizacion", "sucursal","sala", "reunion_informal", "reunion_formal_unica", "reunion_formal_periodica"]
 for i in modulos:
   try:
-    print(i)
     if not str(i) in dbroot:
       dbroot[i] = []
       transaction.commit()
-      db.close()
   except KeyError:
     print("La clave es invalida")
+db.close()
 
 
 def home_menu():
-  os.system('clear')
+  #os.system('clear')
   print ("Bienvenido al SGR. Por favor, seleccione la accion que desea realizar: ")
   print ("\t1 - Agregar sala")
   print ("\t2 - Listar salas")
@@ -30,20 +29,26 @@ while True:
   home_menu()
   sala_controller = SalaController()
   reunion_controller = ReunionController()
-  opcion_menu = input("Inserte un numero valor: ")
+  opcion_menu = input("Inserte una opcion: ")
   if opcion_menu=="1":
     #Se eligio crear una sala
     nombre_sala= input("Nombre de sala: ")
     max_ocupantes= int(input("Maximo de ocupantes: "))
     estado_sala= input("Estado de sala(habilitada o inhabilitada): ")
     try:
+      print("asg")
       if(sala_controller.agregar_sala(nombre_sala, max_ocupantes, estado_sala)):
         input("Se ha agregado una sala.\nPulsa una tecla para continuar")
     except:
       print("Unexpected error:", sys.exc_info()[0])
       raise
   elif opcion_menu=="2":
-    sala_controller.listar_salas()
+    salas = sala_controller.listar_salas()
+    for i in salas:
+      print("\n")
+      print("Nombre: ", i.nombre_sala)
+      print("Maximo de ocupantes: ", i.max_ocupantes)
+      print("Estado: ", i.estado_sala)
     input("\nPulsa una tecla para continuar")
   elif opcion_menu=="3":
     detalle_reunion = input("Detalle de la reunion: ")
@@ -60,7 +65,9 @@ while True:
       print("Unexpected error: ", sys.exc_info()[0])
       raise  
   elif opcion_menu=="4":
-    pass
+    sala = input("Sala: ")
+    fecha = input("Fecha: ")
+    reunion_controller.listar_reuniones_dia_sala(sala, fecha)
     input("\nPulsa una tecla para continuar")
   elif opcion_menu=="0":
     break

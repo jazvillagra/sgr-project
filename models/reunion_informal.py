@@ -1,4 +1,4 @@
-from reunion import Reunion
+from models.reunion import Reunion
 #Reunion informal: aquella que comienza en el momento en que se elige la opcion en el menu.
 #Dura entre 10 y 30 minutos
 class ReunionInformal(Reunion):
