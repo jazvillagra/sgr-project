@@ -15,3 +15,10 @@ class SalaController:
   #Listar salas de una sucursal
   def listar_salas(self):
     return Sala.getAll(Sala)
+  def listar_salas_disponibles(self, cant_participantes):
+    salas= Sala.getAll(Sala)
+    salas_disponibles  = []
+    for i in salas:
+      if i.estado == "Habilitada" and cant_participantes <= i.max_ocupantes:
+        salas_disponibles.append(i)
+    return salas_disponibles
