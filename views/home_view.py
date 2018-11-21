@@ -26,7 +26,8 @@ def home_menu():
   print ("\t1 - Agregar sala")
   print ("\t2 - Listar salas")
   print ("\t3 - Agendar reunion")
-  print ("\t4 - Listar reuniones del dia")
+  print ("\t4 - Listar reuniones del dia de una sala")
+  print ("\t5 - Listar reuniones unicas")
   print ("\t0 - Salir")
 while True:
   home_menu()
@@ -51,7 +52,6 @@ while True:
       else:
         print("Por favor, intente nuevamente")
     try:
-      print("asg")
       if(sala_controller.agregar_sala(nombre_sala, max_ocupantes, estado_sala)):
         input("Se ha agregado una sala.\nPulsa una tecla para continuar")
     except:
@@ -91,8 +91,6 @@ while True:
         hora_inicio = reunion_controller.convertir_a_horas(input("Hora de inicio (hh:mm): "))
         reuniones_dia_sala = reunion_controller.listar_reuniones_dia_sala(sala_reunion, fecha_realizacion_reunion)
         hora_finalizacion = reunion_controller.convertir_a_horas(input("Hora de finalización (hh:mm): "))
-        ####
-        ######ACA TE QUEDASTE
         for i in reuniones_dia_sala:
           while hora_inicio == i.hora_inicio or (hora_inicio > i.hora_inicio and hora_inicio < i.hora_finalizacion):
             hora_inicio = input("La sala ", sala_reunion,
@@ -101,23 +99,34 @@ while True:
           while hora_finalizacion > i.hora_inicio:
             hora_finalizacion = input("La reunion debe finalizar antes de las  ", i.hora_inicio, "hs.")
       estado = "PENDIENTE"
-      print ("Reunion :\n 1 - Unica\n2 - Periodica")
+      print ("Reunion :\n1 - Unica\n2 - Periodica")
       opcion_reunion = input("Elija una opcion: ")
       if opcion_reunion=="1":
         try:
-          if(reunion_controller.agendar_reunion_unica(detalle_reunion, organizador, organizador_rol, cant_participantes,
-                                                sala_reunion, estado, fecha_realizacion_reunion, hora_inicio, hora_finalizacion)):
+          fecha_registro = datetime.now()
+          if (reunion_controller.agendar_reunion_unica(detalle_reunion, organizador, organizador_rol, cant_participantes, sala_reunion, estado, fecha_realizacion_reunion, fecha_registro, hora_inicio, hora_finalizacion)):
             input("\nLa reunion se agendo correctamente. Pulse una tecla para continuar.")
-        except:
-          print("Unexpected error: ", sys.exc_info()[0])
+        except ValueError or TypeError:
+          print("No se pudo registrar la reunion. El error fue: ", sys.exc_info()[0])
           raise
   elif opcion_menu=="4":
     #Se eligio listar las reuniones en una sala en cierto día
-
     sala = input("Sala: ")
     fecha = input("Fecha: ")
-    reunion_controller.listar_reuniones_dia_sala(sala, fecha)
+    reuniones = reunion_controller.listar_reuniones_dia_sala(sala, fecha)
+    for i in reuniones:
+      print("\n Detalle: ", i.detalle)
+      print(" Fecha registro: ", i.fecha_registro)
+      print(" Agendada para: ", i.fecha_realizacion)
+      print(" Hora inicio: ", i.hora_inicio)
     input("\nPulsa una tecla para continuar")
+  elif opcion_menu == "5":
+    reuniones = reunion_controller.listar_reuniones_unicas();
+    for i in reuniones:
+      print("\n Detalle: ", i.detalle)
+      print(" Fecha registro: ", i.fecha_registro)
+      print(" Agendada para: ", i.fecha_realizacion)
+      print(" Hora inicio: ", i.hora_inicio)
   elif opcion_menu=="0":
     break
   else:

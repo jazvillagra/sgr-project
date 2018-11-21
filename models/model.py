@@ -27,6 +27,7 @@ class Model(persistent.Persistent):
     else:
       print("Intenta guardar los datos")
       recursos = dbroot[self.getClave()]
+      print("Clave: ", self.getClave())
       idx = len(recursos)
       recursos.append(self)
       db.root[self.getClave()] = recursos
