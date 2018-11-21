@@ -19,15 +19,15 @@ class Model(persistent.Persistent):
     db = MiZODB('sgr-data.fs')
     dbroot = db.root
     if not self.getClave() in dbroot.keys():
-      print("Creo el slot")
+      #print("Creo el slot")
       recursos = []
       recursos.append(self)
       db.root[self.getClave()] = recursos
       transaction.commit()
     else:
-      print("Intenta guardar los datos")
+      #print("Intenta guardar los datos")
       recursos = dbroot[self.getClave()]
-      print("Clave: ", self.getClave())
+      #print("Clave: ", self.getClave())
       idx = len(recursos)
       recursos.append(self)
       db.root[self.getClave()] = recursos

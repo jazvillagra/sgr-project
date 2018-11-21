@@ -1,4 +1,6 @@
 import calendar
+from typing import List, Any
+
 from models.reunion import Reunion
 from models.reunion_formal import ReunionFormal
 from models.reunion_formal_unica import ReunionFormalUnica
@@ -22,15 +24,22 @@ class ReunionController:
   def empezar_reunion_informal(self, hora_inicio, hora_final):
     reunion_informal = ReunionInformal(hora_inicio, hora_final)
     return reunion_informal.create()
+  #Listar TODAS las reuniones
+  def listar_reuniones(self):
+    reuniones = ReunionController.listar_reuniones_unicas(self)
+    for i in ReunionController.listar_reuniones_periodicas(self):
+      reuniones.append(i)
+    return reuniones
   #Listar reuniones del dia de una sala
   def listar_reuniones_dia_sala(self, sala, fecha_a_buscar):
-    print("Buscando lista de reuniones segun su fecha")
+    #print("Buscando lista de reuniones segun su fecha")
     reuniones = ReunionController.listar_reuniones_dia(self, fecha_a_buscar)
     reuniones_dia_sala = []
-    print("Buscando por sala: ")
+    #print("Buscando por sala: ")
     for i in reuniones:
-      if i.sala == sala:
+      if i.sala.upper() == sala.upper():
         reuniones_dia_sala.append(i)
+        #print("Reu: ", i.detalle)
     return reuniones_dia_sala
   #Listar reuniones por dia en todas las salas
   def listar_reuniones_dia(self, fecha_a_buscar):
@@ -38,8 +47,8 @@ class ReunionController:
     reuniones = ReunionFormalUnica.getAll(ReunionFormalUnica)
     reuniones_dia = []
     for i in reuniones:
-      print("Dia a buscar: ", fecha)
-      print("Dia de la instancia: ", i.fecha_realizacion)
+      #print("Dia a buscar: ", fecha)
+      #print("Dia de la instancia: ", i.fecha_realizacion, " entonces: ", i.fecha_realizacion == fecha)
       if i.fecha_realizacion == fecha:
         reuniones_dia.append(i)
     return reuniones_dia
