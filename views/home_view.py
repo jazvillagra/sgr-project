@@ -9,14 +9,16 @@ db = MiZODB('sgr-data.fs')
 dbroot = db.root
 modulos= ["organizacion", "sucursal","sala", "reunion_informal", "reunion_formal_unica", "reunion_formal_periodica"]
 for i in modulos:
+  print("Crearia ", i)
   try:
-    if not str(i) in dbroot:
-      dbroot[i] = []
+    print("Trying for ", i)
+    if not i in dbroot.keys():
+      db.root[i] = []
       transaction.commit()
+      print(i, "creado")
   except KeyError:
     print("La clave es invalida")
 db.close()
-
 
 def home_menu():
   #os.system('clear')
@@ -68,38 +70,50 @@ while True:
   #####OPCION 3
   elif opcion_menu=="3":
     #Se eligio agendar reunion
-    detalle_reunion = input("Detalle de la reunion: ")
-    organizador = input("Organizador/a: ")
-    organizador_rol = input("Rol del organizador en la empresa: ")
-    cant_participantes = input("Cantidad de participantes: ")
-    sala_reunion = ""
-    lista_reuniones = reunion_controller.listar_reuniones_dia(fecha_realizacion_reunion)
-    while not sala_reunion:
-      print("Lista de salas habilitadas:")
-      salas_disponibles = sala_controller.listar_salas_disponibles(cant_participantes)
-      cont = 0
-      for i in salas_disponibles:
-        cont += 1
-        print("\n")
-        print(cont, " - Nombre: ", i.nombre_sala)
-        print("Maximo de ocupantes: ", i.max_ocupantes)
-      sala_reunion = salas[int(input("Sala en la que se realiza: \n")-1)].nombre_sala
-      fecha_realizacion_reunion = convertir_a_fecha(input("Fecha de la reunion (yyyy-MM-dd): "))
-      hora_inicio = convertir_a_horas(input("Hora de inicio (hh:mm): "))
-      reuniones_dia_sala = reunion_controller.listar_reuniones_dia_sala_sala(sala_reunion, fecha_realizacion_reunion)
-      ####
-      ######ACA TE QUEDASTE
-      for i in reuniones_dia_sala:
-        if hora_inicio == i.hora_inicio or (hora_inicio > i.hora_inicio and hora_inicio < i.hora_finalizacion):
-          hora_inicio = input("La sala ", sala_reunion, "está ocupada en el horario seleccionado. Por favor ")
-    estado = "PENDIENTE"
-    try:
-      if(reunion_controller.agendar_reunion(detalle_reunion, organizador, organizador_rol, cant_participantes, sala_reunion, estado, fecha_realizacion_reunion, hora_inicio, hora_final)):
-        input("\nLa reunion se agendo correctamente. Pulse una tecla para continuar.")
-    except:
-      print("Unexpected error: ", sys.exc_info()[0])
-      raise
+      detalle_reunion = input("Detalle de la reunion: ")
+      organizador = input("Organizador/a: ")
+      organizador_rol = input("Rol del organizador en la empresa: ")
+      cant_participantes = int(input("Cantidad de participantes: "))
+      sala_reunion = ""
+      fecha_realizacion_reunion = input("Fecha de la reunion (yyyy-MM-dd): ")
+      fecha_realizacion_reunion = reunion_controller.convertir_a_fecha(fecha_realizacion_reunion)
+      lista_reuniones = reunion_controller.listar_reuniones_dia(fecha_realizacion_reunion)
+      while not sala_reunion:
+        print("Elija una sala de la lista de salas habilitadas:")
+        salas_disponibles = sala_controller.listar_salas_disponibles_por_cantidad_participantes(cant_participantes)
+        cont = 0
+        for i in salas_disponibles:
+          print("\n")
+          print(cont, " - Nombre: ", i.nombre_sala)
+          print("Maximo de ocupantes: ", i.max_ocupantes)
+          cont += 1
+        sala_reunion = salas_disponibles[int(input("Sala en la que se realiza: \n"))].nombre_sala
+        hora_inicio = reunion_controller.convertir_a_horas(input("Hora de inicio (hh:mm): "))
+        reuniones_dia_sala = reunion_controller.listar_reuniones_dia_sala(sala_reunion, fecha_realizacion_reunion)
+        hora_finalizacion = reunion_controller.convertir_a_horas(input("Hora de finalización (hh:mm): "))
+        ####
+        ######ACA TE QUEDASTE
+        for i in reuniones_dia_sala:
+          while hora_inicio == i.hora_inicio or (hora_inicio > i.hora_inicio and hora_inicio < i.hora_finalizacion):
+            hora_inicio = input("La sala ", sala_reunion,
+                                "está ocupada en el horario seleccionado. Por favor ingrese un horario mayor a las ",
+                                i.hora_finalizacion, "hs. o menor a ", i.hora_inicio," hs:")
+          while hora_finalizacion > i.hora_inicio:
+            hora_finalizacion = input("La reunion debe finalizar antes de las  ", i.hora_inicio, "hs.")
+      estado = "PENDIENTE"
+      print ("Reunion :\n 1 - Unica\n2 - Periodica")
+      opcion_reunion = input("Elija una opcion: ")
+      if opcion_reunion=="1":
+        try:
+          if(reunion_controller.agendar_reunion_unica(detalle_reunion, organizador, organizador_rol, cant_participantes,
+                                                sala_reunion, estado, fecha_realizacion_reunion, hora_inicio, hora_finalizacion)):
+            input("\nLa reunion se agendo correctamente. Pulse una tecla para continuar.")
+        except:
+          print("Unexpected error: ", sys.exc_info()[0])
+          raise
   elif opcion_menu=="4":
+    #Se eligio listar las reuniones en una sala en cierto día
+
     sala = input("Sala: ")
     fecha = input("Fecha: ")
     reunion_controller.listar_reuniones_dia_sala(sala, fecha)
@@ -109,13 +123,3 @@ while True:
   else:
     print ("")
     input("No has pulsado ninguna opción correcta.\nPulsa una tecla para continuar")
-
-  def convertir_a_fecha(self, cadena_fecha):
-    formato_fecha =  "%Y-%m-%d"
-    fecha = datetime.strptime(cadena_fecha, formato_fecha)
-    return fecha
-
-  def convertir_a_horas(self, cadena_horas):
-    formato_hora = "%H:%M:%S"
-    hora = datetime.strptime(cadena_horas, formato_hora)
-    return hora

@@ -1,12 +1,19 @@
+import calendar
 from models.reunion import Reunion
 from models.reunion_formal import ReunionFormal
+from models.reunion_formal_unica import ReunionFormalUnica
 from models.reunion_formal_periodica import ReunionFormalPeriodica
 from models.reunion_informal import ReunionInformal
+from datetime import datetime, date, time, timedelta
 class ReunionController:
 
   #Agendar reunion
-  def agendar_reunion(self, detalle, organizador, organizador_rol, cant_participantes, sala, estado, fecha_realizacion, hora_inicio, hora_finalizacion):
-    reunion = Reunion(detalle, organizador, organizador_rol, cant_participantes, sala, estado, fecha_realizacion, hora_inicio, hora_finalizacion)
+  def agendar_reunion_unica(self, detalle, organizador, organizador_rol, cant_participantes, sala, estado, fecha_realizacion, hora_inicio, hora_finalizacion):
+    reunion = ReunionFormalUnica(self, detalle, organizador, organizador_rol, cant_participantes, sala, estado, fecha_realizacion, hora_inicio, hora_finalizacion)
+    return reunion.create()
+  #Agendar reunion periodica
+  def agendar_reunion_periodica(self, detalle, organizador, organizador_rol, cant_participantes, sala, estado, fecha_realizacion, hora_inicio, hora_finalizacion, fecha_inicio, fecha_final, frecuencia):
+    reunion = ReunionFormalPeriodica(self, detalle, organizador, organizador_rol, cant_participantes, sala, estado, fecha_realizacion, hora_inicio, hora_finalizacion, fecha_inicio, fecha_final, frecuencia)
     return reunion.create()
   #Cancelar reunion
   def cancelar_reunion(self):
@@ -32,16 +39,24 @@ class ReunionController:
     pass
   #Listar reuniones del dia de una sala
   def listar_reuniones_dia_sala(self, sala, fecha_realizacion):
-    reuniones = listar_reuniones_dia(fecha_realizacion)
+    reuniones = ReunionController.listar_reuniones_dia(self, fecha_realizacion)
     reuniones_dia_sala = []
     for i in reuniones:
       if i.sala == sala:
         reuniones_dia_sala.append(i.detalle)
     return reuniones_dia_sala
   def listar_reuniones_dia(self, fecha_realizacion):
-    reuniones= ReunionFormal.getAll(ReunionFormal)
+    reuniones= ReunionFormalUnica.getAll(ReunionFormalUnica)
     reuniones_dia = []
     for i in reuniones_dia:
       if i.fecha_realizacion == fecha_realizacion:
         reuniones.append(i.detalle)
     return reuniones_dia
+  def convertir_a_fecha(self, cadena_fecha):
+    formato_fecha = "%Y-%m-%d"
+    fecha = datetime.strptime(cadena_fecha, formato_fecha)
+    return fecha
+  def convertir_a_horas(self, cadena_horas):
+    formato_hora = "%H:%M"
+    hora = datetime.strptime(cadena_horas, formato_hora)
+    return hora

@@ -23,7 +23,7 @@ class Model(persistent.Persistent):
       recursos = []
       recursos.append(self)
       db.root[self.getClave()] = recursos
-      transaction.commit()
+      transaction.commit()-
     else:
       print("Intenta guardar los datos")
       recursos = dbroot[self.getClave()]
