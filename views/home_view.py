@@ -3,26 +3,45 @@ from datetime import datetime, date, time, timedelta
 import os, sys, calendar
 from controllers.sala_controller import SalaController
 from controllers.reunion_controller import ReunionController
+from controllers.organizacion_controller import OrganizacionController
+from controllers.sucursal_controller import SucursalController
+
 from mizodb import MiZODB, transaction
 
-db = MiZODB('sgr-data.fs')
-dbroot = db.root
-modulos= ["organizacion", "sucursal","sala", "reunion_informal", "reunion_formal_unica", "reunion_formal_periodica"]
-for i in modulos:
-  print("Crearia ", i)
-  try:
-    print("Trying for ", i)
-    if not i in dbroot.keys():
-      db.root[i] = []
-      transaction.commit()
-      print(i, "creado")
-  except KeyError:
-    print("La clave es invalida")
-db.close()
-
-def home_menu():
+#
+# db = MiZODB('sgr-data.fs')
+# dbroot = db.root
+# modulos= ["organizacion", "sucursal","sala", "reunion_informal", "reunion_formal_unica", "reunion_formal_periodica"]
+# for i in modulos:
+#   print("Crearia ", i)
+#   try:
+#     print("Trying for ", i)
+#     if not i in dbroot.keys():
+#       db.root[i] = []
+#       transaction.commit()
+#       print(i, "creado")
+#   except KeyError:
+#     print("La clave es invalida")
+# db.close()
+def welcome():
   #os.system('clear')
-  print ("Bienvenido al SGR. Por favor, seleccione la accion que desea realizar: ")
+  organizacion_controller = OrganizacionController()
+  sucursal_controller = SucursalController()
+  sala_controller = SalaController()
+
+  organizacion = organizacion_controller.traer_organizacion()
+  salas = sala_controller.listar_salas()
+  sucursal = sucursal_controller.traer_sucursal()
+  print("Empresa: ", organizacion[0].nombre)
+  print("\t Sucursal")
+  print ("Bienvenido al SGR de la Sucursal de", sucursal[0].pais, ", en la ciudad de ", sucursal[0].ciudad)
+  print("Las salas disponibles hasta el momento son: ")
+  for i in salas:
+    print("- ", i.nombre_sala)
+
+welcome()
+def home_menu():
+  print("Por favor, seleccione la accion que desea realizar: ")
   print ("\t1 - Agregar sala")
   print ("\t2 - Listar salas")
   print ("\t3 - Agendar reunion")

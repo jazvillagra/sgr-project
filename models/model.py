@@ -34,6 +34,16 @@ class Model(persistent.Persistent):
       transaction.commit()
     db.close()
     return idx
-
+  # getOne
+  @staticmethod
+  def getOne(self):
+    db = MiZODB('sgr-data.fs')
+    dbroot = db.root
+    recursos = []
+    for i in dbroot[self.getClave(self)]:
+      recursos.append(i.copy())
+      break
+    db.close()
+    return recursos
   def delete(self):
     pass
