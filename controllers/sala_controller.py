@@ -1,5 +1,4 @@
 from models.sala import Sala
-from mizodb import MiZODB
 class SalaController:
   #Agregar sala nueva
   @staticmethod
@@ -22,6 +21,7 @@ class SalaController:
       if i.estado_sala == "Habilitada":
         salas_disponibles.append(i)
     return salas_disponibles
+
   def listar_salas_disponibles_por_cantidad_participantes(self, cant_participantes):
     salas= SalaController.listar_salas_disponibles(SalaController)
     salas_disponibles_por_cant_participantes= []
@@ -29,5 +29,6 @@ class SalaController:
       if int(cant_participantes) <= int(i.max_ocupantes):
         salas_disponibles_por_cant_participantes.append(i)
     return salas_disponibles_por_cant_participantes
+
   def eliminar_por_nombre(self, nombre_sala):
     Sala.delete(self, nombre_sala)
