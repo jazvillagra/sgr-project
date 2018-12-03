@@ -6,11 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e7f9f61-9f18-4f42-9775-929c6829d7bc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/views/entry.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/reunion_view.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/sala_view.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/sgr_main_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/views/sgr_main_window.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/reunion_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/views/reunion_view.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,7 +15,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/proyecto_final$sgr_main_window.coverage" NAME="sgr_main_window Coverage Results" MODIFIED="1543700617129" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/views" />
+    <SUITE FILE_PATH="coverage/proyecto_final$sgr_main_window.coverage" NAME="sgr_main_window Coverage Results" MODIFIED="1543810874448" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/views" />
     <SUITE FILE_PATH="coverage/proyecto_final$menu_view.coverage" NAME="menu_view Coverage Results" MODIFIED="1543343835486" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/views" />
     <SUITE FILE_PATH="coverage/proyecto_final$vista_sala.coverage" NAME="vista_sala Coverage Results" MODIFIED="1543492050842" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/views" />
     <SUITE FILE_PATH="coverage/proyecto_final$home_view.coverage" NAME="home_view Coverage Results" MODIFIED="1542838840415" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/views" />
@@ -66,12 +62,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="22813" />
+          <entry key="py" value="23371" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="22813" />
+          <entry key="Python" value="23371" />
         </counts>
       </usages-collector>
     </session>
@@ -84,8 +80,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/reunion_view.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="60" column="69" lean-forward="true" selection-start-line="60" selection-start-column="69" selection-end-line="60" selection-end-column="69" />
+            <state relative-caret-position="358">
+              <caret line="95" column="242" selection-start-line="95" selection-start-column="242" selection-end-line="95" selection-end-column="242" />
               <folding>
                 <element signature="e#0#69#0" expanded="true" />
               </folding>
@@ -180,7 +176,7 @@
       <scroll-view-position x="0" y="0" />
     </layout>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="165" />
     <option name="y" value="82" />
     <option name="width" value="1432" />
@@ -600,8 +596,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/reunion_view.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="60" column="69" lean-forward="true" selection-start-line="60" selection-start-column="69" selection-end-line="60" selection-end-column="69" />
+        <state relative-caret-position="358">
+          <caret line="95" column="242" selection-start-line="95" selection-start-column="242" selection-end-line="95" selection-end-column="242" />
           <folding>
             <element signature="e#0#69#0" expanded="true" />
           </folding>

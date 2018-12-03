@@ -49,39 +49,55 @@ class ReunionView:
     anho.grid(row=5, column=5)
     anho.insert(END, "AAAA")
     fecha_realizacion = anho.get() + "-" + mes.get() + "-" + dia.get()
-    agendar_btn = Button(frame, text="Siguiente", activeforeground="black", width=20,
-                              command=lambda: self.agendar_reunion_callback(frame, detalle_reunion.get().upper(), organizador.get().upper(), rol_organizador.get().upper(),
-                                                                         int(cant_participantes.get()), fecha_realizacion))
-    agendar_btn.grid(row=6, column=2)
+    sgte_btn = Button(frame, text="Siguiente", activeforeground="black", width=20,
+                              command=lambda: self.agregar_datos_callback(frame, detalle_reunion.get().upper(), organizador.get().upper(), rol_organizador.get().upper(),
+                                                                          int(cant_participantes.get()), fecha_realizacion))
+    sgte_btn.grid(row=6, column=2)
 
 
-  def agendar_reunion_callback(self, frame, detalle, organizador, rol_organizador,cant_participantes, fecha_realizacion):
+  def agregar_datos_callback(self, frame, detalle, organizador, rol_organizador, cant_participantes, fecha_realizacion):
     msg_titulo = "Mensaje"
     sala_reunion = ""
     Label(frame, text='Hora Inicio:', width=20).grid(row=7, column=2)
-    horas = entry.add_entry(frame)
-    horas.config(width=10)
-    horas.insert(END, "HH")
-    horas.grid(row=7, column=3)
-    mins = entry.add_entry(frame)
-    mins.config(width=10)
-    mins.insert(END, "MM")
-    mins.grid(row=7, column=4)
-    row_count = 8
-    Label(frame, text="Elegir sala:", width=20).grid(row=row_count, column=2)
+    hora_init= entry.add_entry(frame)
+    hora_init.config(width=10)
+    hora_init.insert(END, "HH")
+    hora_init.grid(row=7, column=3)
+    mins_init = entry.add_entry(frame)
+    mins_init.config(width=10)
+    mins_init.insert(END, "MM")
+    mins_init.grid(row=7, column=4)
+    Label(frame, text='Hora Finalización:', width=20).grid(row=8, column=2)
+    hora_fin = entry.add_entry(frame)
+    hora_fin.config(width=10)
+    hora_fin.insert(END, "HH")
+    hora_fin.grid(row=8, column=3)
+    mins_fin = entry.add_entry(frame)
+    mins_fin.config(width=10)
+    mins_fin.insert(END, "MM")
+    mins_fin.grid(row=8, column=4)
+    Label(frame, text="Elegir sala:", width=20).grid(row=9, column=2)
+    row_count = 10
     while not sala_reunion:
       cont = -1
       while cont < 0:
         salas_disponibles = sala_controller.listar_salas_disponibles_por_cantidad_participantes(cant_participantes)
         for i in salas_disponibles:
           cont += 1
-          row_count += 1
           var = StringVar()
           var.set(Radiobutton(frame, text=i.nombre_sala, variable=var, value="Habilitada").grid(row=row_count, column=3))
+          row_count += 1
         if (cont < 0):
           showinfo(msg_titulo, "No hay salas disponibles para la cantidad de participantes seleccionada.\nPor favor, intente nuevamente")
+      hora_inicio = hora_init.get()+":"+mins_init.get()
+      hora_finalizacion = hora_fin.get()+":"+mins_fin.get()
       estado_reunion = "Pendiente"
       sala_reunion = var.get()
+      agendar_btn = Button(frame, text="Siguiente", activeforeground="black", width=20, command=lambda: self.agendar_reunion_callback(detalle, organizador, rol_organizador, cant_participantes, sala_reunion, estado_reunion, fecha_realizacion, hora_inicio, hora_finalizacion))
+      agendar_btn.grid(row=row_count, column=2)
+
+  def agendar_reunion_callback(self, detalle, organizador, rol_organizador, cant_participantes, sala_reunion, estado_reunion, fecha_realizacion, hora_inicio, hora_finalizacion):
+    msg_titulo = "Mensaje"
     try:
       fecha_registro = datetime.now()
       if reunion_controller.agendar_reunion_unica(detalle, organizador, rol_organizador, cant_participantes, sala_reunion,
