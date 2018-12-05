@@ -20,17 +20,7 @@ class ListarReunionesView:
     frame.destroy()
     frame = Frame(ventana_principal)
     frame.grid(row=1, column=2, rowspan=200, columnspan=200)
-    lista = Text(frame)
-    count = 0
-    for reu in lista_reuniones:
-      count += 1
-      lista.insert(END, "* Detalle: ", reu.detalle + "\n")
-      lista.insert(END, "\t"+"Sala en que se realiza: ", reu.sala + "\n")
-      lista.insert(END, "\t"+"Fecha registro: ", str(reu.fecha_registro) + "\n")
-      lista.insert(END, "\t"+"Agendada para: ", str(reu.fecha_realizacion) + "\n")
-      lista.insert(END, "\t"+"Hora inicio: ", str(reu.hora_inicio) + "\n")
-      lista.insert(END, "\t"+"Hora finalizacion: ", str(reu.hora_finalizacion) + "\n")
-    lista.grid(row=1, column=2, rowspan=count)
+    self.mostrar_datos(frame, lista_reuniones)
 
   def listar_reuniones_periodicas_callback(self, ventana_principal, frame):
     lista_reuniones = reunion_controller.listar_reuniones_periodicas()
@@ -39,14 +29,27 @@ class ListarReunionesView:
     frame.grid(row=1, column=2, rowspan=200, columnspan=200)
     lista = Text(frame)
     count = 0
-    for reu in lista_reuniones:
+    for i in lista_reuniones:
       count += 1
-      lista.insert(END, "* Detalle: ", reu.detalle + "\n")
-      lista.insert(END, "\t"+"Sala en que se realiza: ", reu.sala + "\n")
-      lista.insert(END, "\t"+"Fecha registro: ", str(reu.fecha_registro) + "\n")
-      lista.insert(END, "\t"+"Agendada para: ", str(reu.fecha_realizacion) + "\n")
-      lista.insert(END, "\t"+"Hora inicio: ", str(reu.hora_inicio) + "\n")
-      lista.insert(END, "\t"+"Hora finalizacion: ", str(reu.hora_finalizacion) + "\n")
-      lista.insert(END, "\t"+"Fecha de finalizacion: ", str(reu.fecha_finalizacion) + "\n")
-      lista.insert(END, "\t"+"Frecuencia: ", str(reu.frecuencia) + "\n\n")
+      lista.insert(END, "* Detalle: " + i.detalle + "\n")
+      lista.insert(END, "\t"+"Sala en que se realiza: " + i.sala + "\n")
+      lista.insert(END, "\t"+"Fecha registro: " + str(i.fecha_registro) + "\n")
+      lista.insert(END, "\t"+"Agendada para: " + str(i.fecha_realizacion) + "\n")
+      lista.insert(END, "\t"+"Hora inicio: " + str(i.hora_inicio) + "\n")
+      lista.insert(END, "\t"+"Hora finalizacion: " + str(i.hora_finalizacion) + "\n")
+      lista.insert(END, "\t"+"Fecha de finalizacion: " + str(i.fecha_finalizacion) + "\n")
+      lista.insert(END, "\t"+"Frecuencia: " + str(i.frecuencia) + "\n\n")
+    lista.grid(row=1, column=2, rowspan=count)
+
+  def mostrar_datos(self, frame, lista_reuniones):
+    lista = Text(frame)
+    count = 0
+    for i in lista_reuniones:
+      count += 1
+      lista.insert(END, "* Detalle: " + i.detalle + "\n")
+      lista.insert(END, "\t"+"Sala en que se realiza: " + i.sala + "\n")
+      lista.insert(END, "\t"+"Fecha registro: " + str(i.fecha_registro) + "\n")
+      lista.insert(END, "\t"+"Agendada para: " + str(i.fecha_realizacion) + "\n")
+      lista.insert(END, "\t"+"Hora inicio: " + str(i.hora_inicio) + "\n")
+      lista.insert(END, "\t"+"Hora finalizacion: " + str(i.hora_finalizacion) + "\n")
     lista.grid(row=1, column=2, rowspan=count)

@@ -21,8 +21,8 @@ class ReunionController:
                                                       hora_finalizacion, fecha_inicio, fecha_final, frecuencia)
     return reunion_formal_periodica.create()
   #Empezar una reunion informal. Esto se implementara con la interfaz grafica (se empieza con un botoncito que llame a esta accion)
-  def empezar_reunion_informal(self, hora_inicio, hora_final):
-    reunion_informal = ReunionInformal(hora_inicio, hora_final)
+  def empezar_reunion_informal(self, duracion):
+    reunion_informal = ReunionInformal(duracion)
     return reunion_informal.create()
   #Listar TODAS las reuniones
   def listar_reuniones(self):

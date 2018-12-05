@@ -94,6 +94,8 @@ class AgendarReunionView:
           row_count += 1
         if (cont < 0):
           showinfo(msg_titulo, "No hay salas disponibles para la cantidad de participantes seleccionada.\nPor favor, intente nuevamente")
+          cont+=1
+          self.vista_agendar_reunion_callback(ventana, frame)
       hora_inicio = hora_init.get()+":"+mins_init.get()
       hora_finalizacion = hora_fin.get()+":"+mins_fin.get()
       estado_reunion = "Pendiente"
