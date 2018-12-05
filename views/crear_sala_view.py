@@ -11,9 +11,11 @@ class CrearSalaView:
 
 # Crea frame para agregar sala
   def vista_agregar_sala_callback(self, ventana_principal, frame):
+    frame.grid_remove()
     frame.destroy()
     frame = Frame(ventana_principal)
     frame.grid(row=1, column=2, rowspan=400, columnspan=400)
+    frame.config(width=900)
     Label(frame, text="Nombre Sala:", width=20).grid(row=1, column=2)
     nombre_sala = entry.add_entry(frame)
     nombre_sala.grid(row=1, column=3)
@@ -27,8 +29,7 @@ class CrearSalaView:
     var.set(Radiobutton(frame, text="Inhabilitada", variable=var, value="Inhabilitada").grid(row=3, column=4))
 
     guardar_sala_btn = Button(frame, text="Guardar", activeforeground="black", width=20,
-                              command=lambda: self.agregar_sala_callback(nombre_sala.get().upper(),
-                                                                         int(max_ocupantes.get()), var.get()))
+                              command=lambda: self.agregar_sala_callback(nombre_sala.get().upper(), int(max_ocupantes.get()), var.get()))
     guardar_sala_btn.grid(row=4, column=2)
 
   def agregar_sala_callback(self, nombre_sala, max_ocupantes, estado_sala):
