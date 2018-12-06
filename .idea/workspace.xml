@@ -2,16 +2,17 @@
 <project version="4">
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/views/agendar_reunion_view.py" line="84" />
+    <bookmark url="file://$PROJECT_DIR$/scripts/funcional.py" line="15" />
+    <bookmark url="file://$PROJECT_DIR$/scripts/funcional.py" line="9" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e7f9f61-9f18-4f42-9775-929c6829d7bc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/script-haskell.hs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/script-simple.hs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/agendar_reunion_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/views/agendar_reunion_view.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/crear_sala_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/views/crear_sala_view.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/listar_reuniones_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/views/listar_reuniones_view.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/listar_salas_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/views/listar_salas_view.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/funcional.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/funcional.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/salas.pl" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/salas.pl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sgr-data.fs" beforeDir="false" afterPath="$PROJECT_DIR$/sgr-data.fs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sgr-data.fs.index" beforeDir="false" afterPath="$PROJECT_DIR$/sgr-data.fs.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sgr-data.fs.lock" beforeDir="false" afterPath="$PROJECT_DIR$/sgr-data.fs.lock" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,28 +60,28 @@
         <counts>
           <entry key="hs" value="2" />
           <entry key="pl" value="5" />
-          <entry key="py" value="78" />
+          <entry key="py" value="81" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Haskell" value="2" />
           <entry key="Perl" value="5" />
-          <entry key="Python" value="78" />
+          <entry key="Python" value="81" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="55" />
-          <entry key="pl" value="1063" />
-          <entry key="py" value="27670" />
+          <entry key="pl" value="1099" />
+          <entry key="py" value="31962" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="55" />
-          <entry key="Perl" value="1063" />
-          <entry key="Python" value="27670" />
+          <entry key="Perl" value="1099" />
+          <entry key="Python" value="31962" />
         </counts>
       </usages-collector>
     </session>
@@ -90,11 +91,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scripts/salas.pl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
+            <state relative-caret-position="465">
+              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
             </state>
           </provider>
         </entry>
@@ -102,8 +103,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/funcional.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+            <state>
+              <caret column="21" lean-forward="true" selection-start-column="21" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/agendar_reunion_view.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="10" selection-start-column="10" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -117,7 +127,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/reunion_controller.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="175">
@@ -185,12 +195,12 @@
         <option value="$PROJECT_DIR$/scripts/hechos.pl" />
         <option value="$PROJECT_DIR$/scripts/logica.py" />
         <option value="$PROJECT_DIR$/scripts/db.pl.py" />
-        <option value="$PROJECT_DIR$/scripts/funcional.py" />
         <option value="$PROJECT_DIR$/scripts/menu.pl" />
         <option value="$PROJECT_DIR$/views/crear_sala_view.py" />
         <option value="$PROJECT_DIR$/views/listar_salas_view.py" />
         <option value="$PROJECT_DIR$/views/listar_reuniones_view.py" />
         <option value="$PROJECT_DIR$/views/agendar_reunion_view.py" />
+        <option value="$PROJECT_DIR$/scripts/funcional.py" />
         <option value="$PROJECT_DIR$/scripts/salas.pl" />
       </list>
     </option>
@@ -207,10 +217,10 @@
     </layout>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1" />
+    <option name="x" value="960" />
     <option name="y" value="28" />
-    <option name="width" value="1922" />
-    <option name="height" value="1025" />
+    <option name="width" value="960" />
+    <option name="height" value="1024" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -227,12 +237,7 @@
             <path>
               <item name="proyecto-final" type="b2602c69:ProjectViewProjectNode" />
               <item name="proyecto-final" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="proyecto-final" type="b2602c69:ProjectViewProjectNode" />
-              <item name="proyecto-final" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="scripts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="proyecto-final" type="b2602c69:ProjectViewProjectNode" />
@@ -248,7 +253,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../proyecto-paradigmas" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.JSON" />
   </component>
   <component name="RunDashboard">
@@ -417,7 +422,7 @@
     <frame x="-1" y="28" width="1922" height="1025" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4949785" visible="true" weight="0.20811099" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4949785" visible="true" weight="0.19316968" />
       <window_info id="Structure" order="1" sideWeight="0.5050215" side_tool="true" weight="0.20811099" />
       <window_info id="Favorites" order="2" sideWeight="0.5050215" side_tool="true" weight="0.20811099" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -611,26 +616,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/agendar_reunion_view.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="170" column="24" selection-start-line="170" selection-start-column="24" selection-end-line="170" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#93#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/crear_sala_view.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="13" column="23" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#75#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/listar_salas_view.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -661,20 +646,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/salas.pl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/funcional.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/reunion_formal.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -689,6 +660,44 @@
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/agendar_reunion_view.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="10" selection-start-column="10" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/cytoolz/curried/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="65" selection-start-line="65" selection-end-line="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/crear_sala_view.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="23" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#75#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/funcional.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="21" lean-forward="true" selection-start-column="21" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/salas.pl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
         </state>
       </provider>
     </entry>

@@ -22,14 +22,13 @@ sala(nombre, capacidad, estado):-
 
 % Cuantas salas habilitadas hay: %
 
-salas_habilitadas2:-
+salas_habilitadas:-
 	write("Salas habilitadas: "),
-	salas_habilitadas3,
-	nl.
+	listar_salas_habilitadas.
+
+listar_salas_habilitadas:-
+    esta_habilitada(Nombre),
+    write(Nombre).
 
 esta_habilitada(Nombre) :- estado_de_sala(Nombre, habilitada).
 
-salas_habilitadas3:-
-    esta_habilitada(Nombre),
-    write(Nombre),
-    nl.

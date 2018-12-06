@@ -4,5 +4,15 @@ Instalar las dependencias:
 pip3 install ZODB persistent transaction
 
 Para ejecutar el home view:
-python3 -m views.home_view.py
+python3 -m views.home_view
+
+Para ejecutar la interfaz gráfica:
+python3 -m views.sgr_main_window
+
+Para ejecutar el script Prolog:
+swipl -f scripts/salas.pl
+>>> salas_habilitadas. (con ; se obtienen los resultados de a uno)
+
+Para ejecutar el script funcional:
+python3 funcional.py
 
